@@ -1,0 +1,34 @@
+$(document).ready(function() {
+    $('#studentForm').submit(function(event) {
+        // Name validation (Alpha Numeric)
+        var name = $('#name').val();
+        var nameRegex = /^[a-zA-Z0-9\s]+$/;
+        if (!name.match(nameRegex)) {
+            alert('Name should be alphanumeric.');
+            event.preventDefault();
+        }
+
+        // Mobile number validation (Numeric only, 10 digits)
+        var mobile = $('#mobile').val();
+        var mobileRegex = /^[0-9]{10}$/;
+        if (!mobile.match(mobileRegex)) {
+            alert('Mobile number should be 10 digits.');
+            event.preventDefault();
+        }
+
+        // Email validation
+        var email = $('#email').val();
+        var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        if (!email.match(emailRegex)) {
+            alert('Please enter a valid email address.');
+            event.preventDefault();
+        }
+
+        // Date of birth validation
+        var dob = $('#dob').val();
+        if (dob === "") {
+            alert('Date of birth is required.');
+            event.preventDefault();
+        }
+    });
+});
